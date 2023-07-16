@@ -30,16 +30,20 @@ class LinkedList {
     return this;
   }
 
-  display()
-  {
+  display() {
     const arr = [];
-    
+    let currNode = this.head;
+    while (currNode !== null) {
+      arr.push(currNode.value);
+      currNode = currNode.next;
+    }
+    return arr;
   }
-  
-  insert(index,value)
-  {
-    
-  }
+
+  // insert(index,value)
+  // {
+
+  // }
 
 }
 
@@ -47,4 +51,5 @@ let myList = new LinkedList(16);
 myList.append(5);
 myList.append(10);
 myList.prepend(1);
-console.log(myList);
+console.log(myList.display());
+// console.log(myList);
