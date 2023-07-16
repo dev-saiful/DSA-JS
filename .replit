@@ -1,4 +1,4 @@
-entrypoint = "index.js"
+entrypoint = "Linkedlist.js"
 
 hidden = [".config", "package-lock.json"]
 
