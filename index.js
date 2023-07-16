@@ -30,6 +30,12 @@ class LinkedList {
     return this;
   }
 
+  display()
+  {
+    const arr = [];
+    
+  }
+  
   insert(index,value)
   {
     
