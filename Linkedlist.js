@@ -40,39 +40,49 @@ class LinkedList {
     return arr;
   }
 
-  insert(index,value)// 2,15
+  insert(index, value)// 2,15
   {
     // check valid index
-    if(index >= this.length)
-    {
+    if (index >= this.length) {
       return this.append(value);
     }
 
     const newNode = {
-      value : value,
-      next : null,
+      value: value,
+      next: null,
     };
 
-    
-    let leader = this.traverseToIndex(index-1);// previous node
+
+    let leader = this.traverseToIndex(index - 1);// previous node
     let holdingPointer = leader.next;
     leader.next = newNode;
     newNode.next = holdingPointer;
     this.length++;
     return this;
-    
+
   }
 
-  traverseToIndex(index)
-  {
+  traverseToIndex(index) {
     let counter = 0;
     let currNode = this.head;
-    while(counter !== index)
-      {
-        currNode = currNode.next;
-        counter++;
-      }
+    while (counter !== index) {
+      currNode = currNode.next;
+      counter++;
+    }
     return currNode;
+  }
+
+  remove(index) {
+    // checking valid index
+    if (index >= this.length) {
+      return false;
+    }
+
+    let leader = this.traverseToIndex(index - 1);//previous node
+    let deletedNode = leader.next;
+    leader.next = deletedNode.next;
+    this.length--;
+    return this;
   }
 
 }
@@ -82,6 +92,8 @@ myList.append(5);
 myList.append(10);
 myList.prepend(1);
 console.log(myList.display());
-myList.insert(2,15)
+myList.insert(2, 15)
+console.log(myList.display());
+myList.remove(2);
 console.log(myList.display());
 // console.log(myList);
